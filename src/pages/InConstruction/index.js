@@ -1,7 +1,7 @@
 import React from "react";
 import {makeStyles} from '@material-ui/styles';
 import {Animated} from "react-animated-css";
-import constLogo from '../../assets/images/constLogo.png'
+import constLogo from '../../assets/images/constLogo2.png'
 
 const useStyles = makeStyles(theme => ({
     main: {
@@ -31,7 +31,15 @@ export default function InConstruction(props){
                 </Animated> */}
                 
                 <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={0.6} animationInDuration={3000} isVisible={true}>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <img alt="profilePic" src={constLogo} style={{width: '50vw',height: 'auto'}}/>
+                    <br/>
+                    <br/>
                 </Animated>
                 <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={3.6} animationInDuration={4000} isVisible={true}>
                     <p>El sitio está temporalmente en construcción, disculpe las molestias</p>
