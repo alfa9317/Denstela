@@ -1,27 +1,33 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const jBlue = '#039CE5';
-const jDarkBlue = '#183A67';
+const dPrimary = '#313131';
+const dSecondary = '#000000';
 
 export default createMuiTheme({
     palette: {
         common: {
-            blue: `${jBlue}`,
-            darkBlue: `${jDarkBlue}`
+            blue: `${dPrimary}`,
+            darkBlue: `${dPrimary}`
         },
         primary: {
-            main: `${jBlue}`
+            main: `${dPrimary}`
         },
         secondary: {
-            main: `${jDarkBlue}`
+            main: `${dSecondary}`
         }
     },
     typography: {
         tab: {
-            fontFamily: 'Mukta',
+            fontFamily: "'Montserrat', sans-serif",
             textTransform: 'none',
-            fontWeight: 700,
-            fontSize: '1.3rem'
+            fontWeight: 400,
+            fontSize: '1.2rem'
+        },
+        estimate: {
+            fontFamily: "'Pacifico', cursive;",
+            fontSize: '1rem',
+            textTransform: 'none',
+            color: 'white'
         }
     }
 });

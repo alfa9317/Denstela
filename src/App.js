@@ -14,6 +14,7 @@ function App() {
         </Switch>
     </BrowserRouter>
     </ThemeProvider>
+    
   );
 }
 
