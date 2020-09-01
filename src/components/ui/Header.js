@@ -121,6 +121,9 @@ const useStyles = makeStyles(theme => ({
             opacity: 1
         }
         
+    },
+    appbar: {
+        zIndex: theme.zIndex.modal + 1
     }
 }))
 
@@ -238,7 +241,7 @@ export default function Header(props){
     return (
         <React.Fragment>
             <ElevationScroll>
-                <AppBar position='fixed'>
+                <AppBar position='fixed' className={classes.appbar}>
                     <Toolbar disableGutters>
                         <Button component={Link} to='/' disableRipple className={classes.logoContainer} onClick={()=>setValue(0)}> 
                             <img alt='Company logo' className={classes.logo} src={logo} />
