@@ -4,6 +4,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import {makeStyles} from "@material-ui/styles"
 
+import logo from '../../assets/images/constLogo2.png';
+
 function ElevationScroll(props) {
     const { children } = props;
 
@@ -19,7 +21,23 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles(theme => ({
     toolbarMargin: {
-        ...theme.mixins.toolbar
+        ...theme.mixins.toolbar,
+        marginBottom: '3em',
+        [theme.breakpoints.down('md')]: {
+            marginBottom: '0.6em'
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginBottom: '1.1em'
+        }
+    },
+    logo: {
+        height: '8em',
+        [theme.breakpoints.down('md')]: {
+            height: '5em'
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: '4.5em'
+        }
     }
 }))
 
@@ -30,8 +48,8 @@ export default function Header(props){
         <React.Fragment>
             <ElevationScroll>
                 <AppBar position="fixed" >
-                    <Toolbar>
-                        Denstela
+                    <Toolbar disableGutters>
+                        <img alt='Company logo' className={classes.logo} src={logo} />
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
