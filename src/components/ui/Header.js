@@ -36,7 +36,7 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme => ({
     toolbarMargin: {
         ...theme.mixins.toolbar,
-        marginBottom: '3em',
+        marginBottom: '4em',
         [theme.breakpoints.down('md')]: {
             marginBottom: '0.6em'
         },
@@ -81,7 +81,8 @@ const useStyles = makeStyles(theme => ({
         borderRadius: '50px',
         marginLeft: '50px',
         marginRight: '25px',
-        height: '55px'
+        height: '55px',
+        color: 'black'
     },
     menu: {
         backgroundColor: theme.palette.common.blue,
@@ -193,7 +194,7 @@ export default function Header(props){
                 ))}
             </Tabs>
             <Button variant='contained' color='white' className={classes.button}>
-                Contáctanos
+                Agenda tu cita
             </Button>
             <Menu id='simple-menu'
                 anchorEl={anchorEl} 

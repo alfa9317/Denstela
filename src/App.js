@@ -17,7 +17,7 @@ function App() {
           <Route exact path='/servicio1' component={() => <div>Servicio 1</div>} />
           <Route exact path='/servicio2' component={() => <div>Servicio 2</div>} />
           <Route exact path='/servicio3' component={() => <div>Servicio 3</div>} />
-          <Route exact path='/sobrenostros' component={() => <div>Sobre Nosotros</div>} />
+          <Route exact path='/sobrenosotros' component={() => <div>Sobre Nosotros</div>} />
           <Route exact path='/casos' component={() => <div>Casos de Éxito</div>} />
           <Route exact path='/contacto' component={() => <div>Contacto</div>} />
           <Route exact path='/contacto2' component={() => <div>Contacto</div>} />
