@@ -114,8 +114,11 @@ const useStyles = makeStyles(theme => ({
         color: 'white',
         opacity: 0.7
     },
-    drawerItemEstimate: {
-        backgroundColor: theme.palette.common.orange
+    drawerItemSchedule: {
+        ...theme.typography.tab,
+        color: 'black',
+        opacity: 0.7,
+        backgroundColor: "#fcfcfc"
     },
     drawerItemSelected: {
         '& .MuiListItemText-root': {
@@ -193,7 +196,7 @@ export default function Header(props){
                     <Tab key={`${route}${index}`} className={classes.tab} component={Link} disableRipple to={route.link} label={route.name} aria-owns={route.ariaOwns} aria-haspopup={route.ariaPopup} onMouseOver={route.mouseOver} />
                 ))}
             </Tabs>
-            <Button variant='contained' color='white' className={classes.button}>
+            <Button variant='contained' color='white' component={Link} to='/citas' className={classes.button}>
                 Agenda tu cita
             </Button>
             <Menu id='simple-menu'
@@ -225,8 +228,8 @@ export default function Header(props){
                             <ListItemText className={classes.drawerItem} disableTypography>{route.name}</ListItemText>
                         </ListItem>
                     ))}
-                    <ListItem onClick={() => {setOpenDrawer(false);setValue(5)}} divider button component={Link} classes={{root: classes.drawerItemEstimate, selected: classes.drawerItemSelected}} to='/estimate' selected={value === 5}>
-                        <ListItemText className={classes.drawerItem} disableTypography>Free Estimate</ListItemText>
+                    <ListItem onClick={() => {setOpenDrawer(false);setValue(5)}} divider button component={Link} classes={{root: classes.drawerItemSchedule, selected: classes.drawerItemSelected}} to='/citas' selected={value === 5}>
+                        <ListItemText disableTypography>Agenda tu cita</ListItemText>
                     </ListItem>
                 </List>
             </SwipeableDrawer>

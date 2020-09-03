@@ -20,7 +20,7 @@ function App() {
           <Route exact path='/sobrenosotros' component={() => <div>Sobre Nosotros</div>} />
           <Route exact path='/casos' component={() => <div>Casos de Éxito</div>} />
           <Route exact path='/contacto' component={() => <div>Contacto</div>} />
-          <Route exact path='/contacto2' component={() => <div>Contacto</div>} />
+          <Route exact path='/citas' component={() => <div>Agenda tu cita</div>} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
