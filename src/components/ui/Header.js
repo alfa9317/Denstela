@@ -79,10 +79,17 @@ const useStyles = makeStyles(theme => ({
     button: {
         ...theme.typography.estimate,
         borderRadius: '50px',
-        marginLeft: '50px',
-        marginRight: '25px',
+        marginLeft: '40px',
+        marginRight: '35px',
         height: '55px',
-        color: 'black'
+        color: 'black',
+        transition: 'all 0.4s ease 0s',
+        '&:hover':{
+            color: '#ffffff !important',
+            background: '#a2d5f2',
+            borderColor: '#f6b93b !important',
+            transition: 'all 0.2s ease 0s'
+        }
     },
     menu: {
         backgroundColor: theme.palette.common.blue,
