@@ -1,13 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const dPrimary = '#313131';
-const dSecondary = '#000000';
+const dSecondary = '#141414';
 
 export default createMuiTheme({
     palette: {
         common: {
-            blue: `${dPrimary}`,
-            darkBlue: `${dPrimary}`
+            primary: `${dPrimary}`,
+            secondary: `${dPrimary}`
         },
         primary: {
             main: `${dPrimary}`

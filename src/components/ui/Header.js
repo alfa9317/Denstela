@@ -30,6 +30,8 @@ function ElevationScroll(props) {
 
     return React.cloneElement(children, {
         elevation: trigger ? 20 : 0,
+        color: trigger ? "secondary": "primary"
+        // style: {backgroundColor: trigger ?  "#141414" : "#313131"}
     });
 }
 
@@ -92,7 +94,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     menu: {
-        backgroundColor: theme.palette.common.blue,
+        backgroundColor: theme.palette.common.primary,
         color: 'white',
         borderRadius: '0px'
     },
@@ -114,7 +116,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     drawer: {
-        backgroundColor: theme.palette.common.blue
+        backgroundColor: theme.palette.common.primary
     },
     drawerItem: {
         ...theme.typography.tab,
@@ -252,7 +254,7 @@ export default function Header(props){
     return (
         <React.Fragment>
             <ElevationScroll>
-                <AppBar position='fixed' className={classes.appbar}>
+                <AppBar position='fixed' color= 'primary' className={classes.appbar}>
                     <Toolbar disableGutters>
                         <Button component={Link} to='/' disableRipple className={classes.logoContainer} onClick={()=>setValue(0)}> 
                             <img alt='Company logo' className={classes.logo} src={logo} />
