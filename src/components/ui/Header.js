@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme => ({
         ...theme.typography.tab,
         minWidth: 10,
         marginLeft: '25px',
-        color: 'white'  
+        color: '#FFFFFF'  
     },
     button: {
         ...theme.typography.estimate,
@@ -118,7 +118,7 @@ const useStyles = makeStyles(theme => ({
     },
     drawerItem: {
         ...theme.typography.tab,
-        color: 'white',
+        color: '#FFFFFF',
         opacity: 0.7
     },
     drawerItemSchedule: {
@@ -203,7 +203,7 @@ export default function Header(props){
                     <Tab key={`${route}${index}`} className={classes.tab} component={Link} disableRipple to={route.link} label={route.name} aria-owns={route.ariaOwns} aria-haspopup={route.ariaPopup} onMouseOver={route.mouseOver} />
                 ))}
             </Tabs>
-            <Button variant='contained' color='white' component={Link} to='/citas' className={classes.button}>
+            <Button variant='contained' component={Link} to='/citas' className={classes.button}>
                 Agenda tu cita
             </Button>
             <Menu id='simple-menu'
