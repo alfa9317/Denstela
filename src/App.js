@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css'
 import theme from './components/ui/Theme';
 import Header from './components/ui/Header';
+import Footer from './components/ui/Footer';
 import InConstruction from './pages/InConstruction';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/contacto' component={() => <div>Contacto</div>} />
           <Route exact path='/citas' component={() => <div>Agenda tu cita</div>} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
