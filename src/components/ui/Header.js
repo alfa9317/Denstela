@@ -76,7 +76,10 @@ const useStyles = makeStyles(theme => ({
         ...theme.typography.tab,
         minWidth: 10,
         marginLeft: '25px',
-        color: '#FFFFFF'  
+        color: '#FFFFFF',
+        [theme.breakpoints.up('xl')]: {
+            fontSize: '1.1rem'
+        }
     },
     button: {
         ...theme.typography.estimate,
@@ -91,6 +94,9 @@ const useStyles = makeStyles(theme => ({
             background: '#a2d5f2',
             borderColor: '#f6b93b !important',
             transition: 'all 0.2s ease 0s'
+        },
+        [theme.breakpoints.up('xl')]: {
+            fontSize: '1.1rem'
         }
     },
     menu: {
@@ -145,6 +151,10 @@ export default function Header(props){
     const theme = useTheme();
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
     const matches = useMediaQuery(theme.breakpoints.down('md'));
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 0
+    });
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [value,setValue] = useState(0);
@@ -243,7 +253,7 @@ export default function Header(props){
                 </List>
             </SwipeableDrawer>
             <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
-                <MenuIcon className={classes.drawerIcon}/>
+                <MenuIcon className={classes.drawerIcon} style={{color: trigger ? '#FFFFFF' : 'black'}}/>
             </IconButton>
         </React.Fragment>
     );

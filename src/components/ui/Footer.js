@@ -9,13 +9,13 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         zIndex: 1302,
         position: "relative",
-        height: "5.5em",
-        [theme.breakpoints.down('md')]:{
-            height: "17em"
-        },
-        [theme.breakpoints.down('xs')]:{
-            height: "25em"
-        }
+        // height: "5.5em",
+        // [theme.breakpoints.down('md')]:{
+        //     height: "17em"
+        // },
+        // [theme.breakpoints.down('xs')]:{
+        //     height: "25em"
+        // }
     },
     adornment: {
         width: "20em",
@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
             width: "17em"
         },
         [theme.breakpoints.down('xs')]:{
-            textAlign: "center",
             width: "14em"
         }
     }

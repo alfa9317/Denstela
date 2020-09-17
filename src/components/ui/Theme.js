@@ -21,11 +21,11 @@ export default createMuiTheme({
             fontFamily: "'Montserrat', sans-serif",
             textTransform: 'none',
             fontWeight: 400,
-            fontSize: '1.2rem'
+            fontSize: '0.9rem'
         },
         estimate: {
             fontFamily: "'Pacifico', cursive;",
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             textTransform: 'none',
             color: 'white'
         }
