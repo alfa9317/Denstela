@@ -13,15 +13,15 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         zIndex: 1302,
         position: "relative",
-        height: "22rem",
+        height: "24rem",
         [theme.breakpoints.down('md')]:{
-            height: "15.5rem"
+            height: "23rem"
         },
         [theme.breakpoints.down('sm')]:{
-            height: "22rem"
+            height: "30rem"
         },
         [theme.breakpoints.down('xs')]:{
-            height: "25rem"
+            height: "40rem"
         }
     },
     adornment: {
@@ -71,7 +71,11 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "bold"
     },
     menuGridItem: {
-        margin: '2em 4em 1em 0em'
+        margin: '2em 0em 1em 0em',
+        textAlign:"center",
+        [theme.breakpoints.down('sm')]:{
+            margin: '2em 0em 0em 0em'
+        }
     }
 }))
 
@@ -87,70 +91,61 @@ export default function Footer(){
                         <Button color="primary" className={classes.phoneNumberContainer}><h2 className={classes.phoneNumberText}>{phoneNumber}</h2></Button>
                     </Grid>
                 </Grid>
-                <Grid container direction="column" justify="center" alignItems="center">
-                     <Grid item md={12} lg={7}>
-                         <Grid container justify="center" className={classes.linksContainer}>
-                             <Grid item className={classes.menuGridItem}>
-                                 <Grid container direction="column" spacing={1}>
-                                    <Grid item className={classes.link}>
-                                        Inicio
-                                    </Grid>
-                                 </Grid>
-                             </Grid>
-                             <Grid item className={classes.menuGridItem}>
-                                 <Grid container direction="column" spacing={1}>
-                                    <Grid item className={classes.link}>
-                                        Servicios
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Servicio 1
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Servicio 2
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Servicio 3
-                                    </Grid>
-                                 </Grid>
-                             </Grid>
-                             <Grid item className={classes.menuGridItem}>
-                                 <Grid container direction="column" spacing={1}>
-                                    <Grid item className={classes.link}>
-                                        Sobre nosotros
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Visión
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Tecnología
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Procesos
-                                    </Grid>
-                                    <Grid item className={classes.link}>
-                                        Instalaciones
-                                    </Grid>
-                                 </Grid>
-                             </Grid>
-                             <Grid item className={classes.menuGridItem}>
-                                 <Grid container direction="column" spacing={1}>
-                                    <Grid item className={classes.link}>
-                                        Casos de éxito
-                                    </Grid>
-                                 </Grid>
-                             </Grid>
-                             <Grid item className={classes.menuGridItem}>
-                                 <Grid container direction="column" spacing={1}>
-                                    <Grid item className={classes.link}>
-                                        Contáctanos
-                                    </Grid>
-                                 </Grid>
-                             </Grid>
-                         </Grid>
-                     </Grid>
-                     <Grid item justify="center" md={0} lg={2}>
-                         Botones
-                     </Grid>
+                <Grid container direction="row" justify="center" alignItems="flex-start">
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                            <Grid item className={classes.link}>
+                                Servicios
+                            </Grid>
+                            <Grid item className={classes.link}>
+                                Servicio 1
+                            </Grid>
+                            <Grid item className={classes.link}>
+                                Servicio 2
+                            </Grid>
+                            <Grid item className={classes.link}>
+                                Servicio 3
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                        <Grid item className={classes.link}>
+                            Sobre nosotros
+                        </Grid>
+                        <Grid item className={classes.link}>
+                            Visión
+                        </Grid>
+                        <Grid item className={classes.link}>
+                            Tecnología
+                        </Grid>
+                        <Grid item className={classes.link}>
+                            Procesos
+                        </Grid>
+                        <Grid item className={classes.link}>
+                            Instalaciones
+                        </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                        <Grid item className={classes.link}>
+                            Casos de éxito
+                        </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                        <Grid item className={classes.link}>
+                            Contáctanos
+                        </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid container direction="row" justify="center" alignItems="center">
+                    <Grid item>
+                            Botones
+                    </Grid>
                 </Grid>
             </footer>
 }
