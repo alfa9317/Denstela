@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -68,7 +69,8 @@ const useStyles = makeStyles(theme => ({
         color: 'white',
         fontFamily: "'Montserrat', sans-serif",
         fontSize: "0.75rem",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        textDecoration: 'none'
     },
     menuGridItem: {
         margin: '2em 0em 1em 0em',
@@ -79,12 +81,12 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Footer(){
+export default function Footer(props){
     const classes = useStyles();
 
     return  <footer className={classes.footer}>
                 <Grid container>
-                    <Grid item xs={12} sm={12} md={6} lg={6}> 
+                    <Grid item xs={12} sm={12} md={6} lg={6} component={Link} to='/' disableRipple onClick={()=>props.setValue(0)}> 
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6}> 
@@ -94,49 +96,49 @@ export default function Footer(){
                 <Grid container direction="row" justify="center" alignItems="flex-start">
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
                         <Grid container direction="column" spacing={1}>
-                            <Grid item className={classes.link}>
+                            <Grid item component={Link} to="/servicios" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}}>
                                 Servicios
                             </Grid>
-                            <Grid item className={classes.link}>
+                            <Grid item component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
                                 Servicio 1
                             </Grid>
-                            <Grid item className={classes.link}>
+                            <Grid item component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
                                 Servicio 2
                             </Grid>
-                            <Grid item className={classes.link}>
+                            <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
                                 Servicio 3
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
                         <Grid container direction="column" spacing={1}>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Sobre nosotros
                         </Grid>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Visión
                         </Grid>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Tecnología
                         </Grid>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Procesos
                         </Grid>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Instalaciones
                         </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
                         <Grid container direction="column" spacing={1}>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/casos" className={classes.link} onClick={()=>props.setValue(3)}>
                             Casos de éxito
                         </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
                         <Grid container direction="column" spacing={1}>
-                        <Grid item className={classes.link}>
+                        <Grid item component={Link} to="/contacto" className={classes.link} onClick={()=>props.setValue(4)}>
                             Contáctanos
                         </Grid>
                         </Grid>
