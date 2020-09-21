@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import {useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Hidden from '@material-ui/core/Hidden';
+
 
 
 import footerAdornment from '../../assets/images/constLogo2.png';
@@ -59,14 +59,18 @@ const useStyles = makeStyles(theme => ({
             fontSize: "1.3rem"
         },
         [theme.breakpoints.down('sm')]:{
-            fontSize: "1.1rem"
+            fontSize: "1.1rem",
+            marginTop: "1.5rem"
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: "1rem"
+            fontSize: "1.2rem"
         }
     },
     linksContainer:{
-       marginLeft:'5%'
+       marginLeft:'5%',
+       [theme.breakpoints.down('xs')]:{
+        marginLeft:'0%',
+    }
     },
     mainLink: {
         color: '#e3e3e3',
@@ -75,8 +79,8 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 400,
         textDecoration: 'none',
         [theme.breakpoints.down('xs')]:{
-            fontSize: "1.8rem",
-            margin: "1rem 0rem 1rem 0rem"
+            fontSize: "1.4rem",
+            margin: "0rem",
         }
     },
     link: {
@@ -86,14 +90,18 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 200,
         textDecoration: 'none',
         [theme.breakpoints.down('xs')]:{
-            fontSize: "0.8rem"
+            fontSize: "0.8rem",
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            padding: '0px'
         }
     },
     menuGridItem: {
         margin: '2em 0em 2em 0em',
         textAlign:"center",
         [theme.breakpoints.down('sm')]:{
-            margin: '2em 0em 0em 0em'
+            margin: '1em 0em 1em 0em'
         }
     }
 }))
@@ -102,6 +110,8 @@ export default function Footer(props){
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
+    const matches2 = useMediaQuery(theme.breakpoints.between('sm', 'lg'));
+    const matches3 = useMediaQuery(theme.breakpoints.between('sm', 'sm'));
 
     return  <footer className={classes.footer}>
                 <Grid container>
@@ -112,15 +122,15 @@ export default function Footer(props){
                         <Button color="primary" className={classes.phoneNumberContainer}><h2 className={classes.phoneNumberText}>{phoneNumber}</h2></Button>
                     </Grid>
                 </Grid>
-                <Hidden xsDown>
+                
                     <Grid container direction="row" justify="center" alignItems="flex-start" className={classes.linksContainer}>
                         <Grid item xs={12} sm={6} md={4} lg={4} className={classes.menuGridItem}>
                             <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-                                <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}} style={{marginRight: "6rem"}}>
+                                <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}} style={{marginRight: matches2 ? "7rem": "0rem"}}>
                                     Servicios
                                 </Grid>
                                     <Grid item>
-                                        <Grid container justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
+                                        <Grid container style={{textAlign: matches ? 'center' : 'left'}} spacing={1}>
                                             <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
                                                 Estética dental
                                             </Grid>
@@ -180,7 +190,7 @@ export default function Footer(props){
                         </Grid>
                         <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
                             <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
-                                <Grid item component={Link} to="/casos" className={classes.mainLink} onClick={()=>props.setValue(3)} style={{marginRight: matches ? "6rem": "0rem"}}>
+                                <Grid item component={Link} to="/casos" className={classes.mainLink} onClick={()=>props.setValue(3)} style={{marginRight: matches3 ? "6rem": "0rem"}}>
                                     Casos de éxito
                                 </Grid>
                             </Grid>
@@ -193,8 +203,8 @@ export default function Footer(props){
                             </Grid>
                         </Grid>
                     </Grid>
-                </Hidden>
-                <Hidden smUp>
+               
+                {/* <Hidden smUp>
                     <Grid container direction="column" justify="center" alignItems="center" spacing={1}>
                         <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}}>
                             Servicios
@@ -251,7 +261,7 @@ export default function Footer(props){
                             Contáctanos
                         </Grid>
                     </Grid>
-                </Hidden>
+                </Hidden> */}
                 <Grid container direction="row" justify="center" alignItems="center">
                     <Grid item>
                             Botones
