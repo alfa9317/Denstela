@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import {useTheme} from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 import footerAdornment from '../../assets/images/constLogo2.png';
@@ -83,6 +85,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Footer(props){
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
     return  <footer className={classes.footer}>
                 <Grid container>
@@ -95,7 +99,7 @@ export default function Footer(props){
                 </Grid>
                 <Grid container direction="row" justify="center" alignItems="flex-start">
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                        <Grid container direction="column" spacing={1}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
                             <Grid item component={Link} to="/servicios" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}}>
                                 Servicios
                             </Grid>
@@ -111,7 +115,7 @@ export default function Footer(props){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                        <Grid container direction="column" spacing={1}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
                         <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
                             Sobre nosotros
                         </Grid>
@@ -130,14 +134,14 @@ export default function Footer(props){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                        <Grid container direction="column" spacing={1}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
                         <Grid item component={Link} to="/casos" className={classes.link} onClick={()=>props.setValue(3)}>
                             Casos de éxito
                         </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                        <Grid container direction="column" spacing={1}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
                         <Grid item component={Link} to="/contacto" className={classes.link} onClick={()=>props.setValue(4)}>
                             Contáctanos
                         </Grid>
