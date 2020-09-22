@@ -52,7 +52,6 @@ const useStyles = makeStyles(theme => ({
         marginRight: 'auto',
         marginTop: '27px',
         padding: '0px',
-        textDecoration: 'none !important',
         [theme.breakpoints.down('sm')]:{
             marginTop: '0px',
             marginBottom: '10px'
@@ -63,22 +62,26 @@ const useStyles = makeStyles(theme => ({
         }
     },
     phoneNumberText: {
+        textAlign: 'center',
+        marginTop: '55px',
         color: 'white',
         fontFamily: "'Montserrat', sans-serif",
         fontSize: "1.5rem",
         fontWeight: "bold",
-        textDecoration: 'none !important',
         '&:hover':{
             color: '#a2d5f2',
         },
         [theme.breakpoints.down('md')]:{
-            fontSize: "1.2rem"
+            fontSize: "1.3rem",
+            marginTop: '50px'
         },
         [theme.breakpoints.down('sm')]:{
-            fontSize: "1.1rem",
+            fontSize: "1.2rem",
+            marginTop: '20px'
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: "1.2rem"
+            fontSize: "1.2rem",
+            marginTop: '25px'
         }
     },
     linksContainer:{
@@ -161,8 +164,8 @@ export default function Footer(props){
                     <Grid item xs={12} sm={12} md={6} lg={6} component={Link} to='/' disableRipple onClick={()=>props.setValue(0)}> 
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank'> 
-                        <Button color="primary" className={classes.phoneNumberContainer}><h2 className={classes.phoneNumberText}>{phoneNumber}</h2></Button>
+                    <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank' style={{textDecoration: 'none !important'}}> 
+                        <h2 className={classes.phoneNumberText}>{phoneNumber}</h2>
                     </Grid>
                 </Grid>
                 <Grid container direction="row" justify="center" alignItems="flex-start" className={classes.linksContainer}>
