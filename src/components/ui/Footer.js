@@ -6,8 +6,13 @@ import Button from '@material-ui/core/Button';
 import {useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 import footerAdornment from '../../assets/images/constLogo2.png';
+
+
 const phoneNumber = '(352) 125 0143';
 
 const useStyles = makeStyles(theme => ({
@@ -117,10 +122,24 @@ const useStyles = makeStyles(theme => ({
         // textAlign:'center',
         // marginLeft:'auto',
         // border: "1px solid #141414"
-        width: '35%',
+        width: '30%',
         border: 0,
-        height: '1.7px'    
+        height: '1.7px',
+        [theme.breakpoints.down('sm')]:{
+            width: '33%'
+        },
+        [theme.breakpoints.down('xs')]:{
+            width: '10%',
+            margin: '0px'
+        }    
     },
+    icon:{
+        fontSize: '2em',
+        color: "#e3e3e3",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1.5em'
+        }
+    }
 
 }))
 
@@ -222,22 +241,22 @@ export default function Footer(props){
                     </Grid>
                 </Grid>
                 <div className={classes.socialMedia} />
-                <Grid container direction="row" justify="center" alignItems="center" style={{margin:'45px 10px 10px 10px'}}>
-                    <Grid item className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, transparent, #e3e3e3)'}}/>
-                    <Grid item style={{margin:'0rem 1rem 0rem 1rem'}}>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
+                <Grid container direction="row" justify="center" alignItems="center" style={{margin:'40px 0px 10px 0px'}}>
+                    <Grid item xs={3} sm={4} md={4} lg={4} className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, transparent, #e3e3e3)'}}/>
+                    <Grid item xs={5} sm={3} md={2} lg={2}>
+                        <Grid container justify="center" align="center" spacing={3}>
                             <Grid item>
-                                B1
+                                <FacebookIcon className={classes.icon}/>
                             </Grid>
                             <Grid item>
-                                B2
+                                <InstagramIcon className={classes.icon}/>
                             </Grid>
                             <Grid item>
-                                B3
+                                <TwitterIcon className={classes.icon}/>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, #e3e3e3, transparent)'}}/>
+                    <Grid item xs={3} sm={4} md={4} lg={4} className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, #e3e3e3, transparent)'}}/>
                 </Grid>
                 
             </footer>
