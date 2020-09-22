@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     pad: {
         textAlign: 'center',
         backgroundColor: '#141414',
-        height: '500px'
+        height: '300px'
     }
 }))
 

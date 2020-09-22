@@ -7,7 +7,6 @@ import {useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
-
 import footerAdornment from '../../assets/images/constLogo2.png';
 const phoneNumber = '(352) 125 0143';
 
@@ -17,12 +16,12 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         zIndex: 1302,
         position: "relative",
-        height: "24rem",
+        height: "38rem",
         [theme.breakpoints.down('md')]:{
-            height: "25rem"
+            height: "35rem"
         },
         [theme.breakpoints.down('sm')]:{
-            height: "30rem"
+            height: "40rem"
         },
         [theme.breakpoints.down('xs')]:{
             height: "60rem"
@@ -34,6 +33,7 @@ const useStyles = makeStyles(theme => ({
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
+        marginTop: '20px',
         [theme.breakpoints.down('md')]:{
             width: "19em"
         },
@@ -45,7 +45,16 @@ const useStyles = makeStyles(theme => ({
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-        padding: '0px'
+        marginTop: '27px',
+        padding: '0px',
+        [theme.breakpoints.down('sm')]:{
+            marginTop: '0px',
+            marginBottom: '10px'
+        },
+        [theme.breakpoints.down('xs')]:{
+            marginTop: '0px',
+            marginBottom: '0px'
+        }
     },
     phoneNumberText: {
         color: 'white',
@@ -56,11 +65,10 @@ const useStyles = makeStyles(theme => ({
             color: '#a2d5f2',
         },
         [theme.breakpoints.down('md')]:{
-            fontSize: "1.3rem"
+            fontSize: "1.2rem"
         },
         [theme.breakpoints.down('sm')]:{
             fontSize: "1.1rem",
-            marginTop: "1.5rem"
         },
         [theme.breakpoints.down('xs')]:{
             fontSize: "1.2rem"
@@ -84,7 +92,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     link: {
-        color: '#fafafa',
+        color: '#f4f3f3',
         fontFamily: "'Montserrat', sans-serif",
         fontSize: "0.8rem",
         fontWeight: 200,
@@ -103,7 +111,17 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]:{
             margin: '1em 0em 1em 0em'
         }
-    }
+    },
+    line: {
+        // width:'50%',
+        // textAlign:'center',
+        // marginLeft:'auto',
+        // border: "1px solid #141414"
+        width: '35%',
+        border: 0,
+        height: '1.7px'    
+    },
+
 }))
 
 export default function Footer(props){
@@ -114,6 +132,7 @@ export default function Footer(props){
     const matches3 = useMediaQuery(theme.breakpoints.between('sm', 'sm'));
 
     return  <footer className={classes.footer}>
+        
                 <Grid container>
                     <Grid item xs={12} sm={12} md={6} lg={6} component={Link} to='/' disableRipple onClick={()=>props.setValue(0)}> 
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
@@ -122,150 +141,104 @@ export default function Footer(props){
                         <Button color="primary" className={classes.phoneNumberContainer}><h2 className={classes.phoneNumberText}>{phoneNumber}</h2></Button>
                     </Grid>
                 </Grid>
-                
-                    <Grid container direction="row" justify="center" alignItems="flex-start" className={classes.linksContainer}>
-                        <Grid item xs={12} sm={6} md={4} lg={4} className={classes.menuGridItem}>
-                            <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-                                <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}} style={{marginRight: matches2 ? "7rem": "0rem"}}>
-                                    Servicios
-                                </Grid>
-                                    <Grid item>
-                                        <Grid container style={{textAlign: matches ? 'center' : 'left'}} spacing={1}>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
-                                                Estética dental
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
-                                                Ortodoncia
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Endodoncia
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Implantes
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Prótesis
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
-                                                Periodoncia
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
-                                                Odontopediatría
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Ortopedia maxilar
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Cirugía bucodental
-                                            </Grid>
-                                            <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                                                Rehabilitación dental
-                                            </Grid>
+                <Grid container direction="row" justify="center" alignItems="flex-start" className={classes.linksContainer}>
+                    <Grid item xs={12} sm={6} md={4} lg={4} className={classes.menuGridItem}>
+                        <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
+                            <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}} style={{marginRight: matches2 ? "7rem": "0rem"}}>
+                                Servicios
+                            </Grid>
+                                <Grid item>
+                                    <Grid container style={{textAlign: matches ? 'center' : 'left'}} spacing={1}>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
+                                            Estética dental
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
+                                            Ortodoncia
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Endodoncia
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Implantes
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Prótesis
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
+                                            Periodoncia
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
+                                            Odontopediatría
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Ortopedia maxilar
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Cirugía bucodental
+                                        </Grid>
+                                        <Grid container item sm={6} md={6} lg={6} component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
+                                            Rehabilitación dental
                                         </Grid>
                                     </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                            <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={2}>
-                            <Grid item component={Link} to="/sobrenosotros" className={classes.mainLink} onClick={()=>props.setValue(2)}>
-                                Sobre nosotros
-                            </Grid>
-                            <Grid item>
-                                <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
-                                    <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                                        Visión
-                                    </Grid>
-                                    <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                                        Tecnología
-                                    </Grid>
-                                    <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                                        Procesos
-                                    </Grid>
-                                    <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                                        Instalaciones
-                                    </Grid>
                                 </Grid>
-                            </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                            <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
-                                <Grid item component={Link} to="/casos" className={classes.mainLink} onClick={()=>props.setValue(3)} style={{marginRight: matches3 ? "6rem": "0rem"}}>
-                                    Casos de éxito
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
-                            <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
-                            <Grid item component={Link} to="/contacto" className={classes.mainLink} onClick={()=>props.setValue(4)}>
-                                Contáctanos
-                            </Grid>
-                            </Grid>
                         </Grid>
                     </Grid>
-               
-                {/* <Hidden smUp>
-                    <Grid container direction="column" justify="center" alignItems="center" spacing={1}>
-                        <Grid item component={Link} to="/servicios" className={classes.mainLink} onClick={()=>{props.setValue(1); props.setSelectedIndex(0)}}>
-                            Servicios
-                        </Grid>
-                        <Grid item component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
-                            Estética dental
-                        </Grid>
-                        <Grid item component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
-                            Ortodoncia
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Endodoncia
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Implantes
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Prótesis
-                        </Grid>
-                        <Grid item component={Link} to="/servicio1" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(1)}}>
-                            Periodoncia
-                        </Grid>
-                        <Grid item component={Link} to="/servicio2" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(2)}}>
-                            Odontopediatría
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Ortopedia maxilar
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Cirugía bucodental
-                        </Grid>
-                        <Grid item component={Link} to="/servicio3" className={classes.link} onClick={()=>{props.setValue(1); props.setSelectedIndex(3)}}>
-                            Rehabilitación dental
-                        </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={2}>
                         <Grid item component={Link} to="/sobrenosotros" className={classes.mainLink} onClick={()=>props.setValue(2)}>
                             Sobre nosotros
                         </Grid>
-                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                            Visión
+                        <Grid item>
+                            <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
+                                <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
+                                    Visión
+                                </Grid>
+                                <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
+                                    Tecnología
+                                </Grid>
+                                <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
+                                    Procesos
+                                </Grid>
+                                <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
+                                    Instalaciones
+                                </Grid>
+                            </Grid>
                         </Grid>
-                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                            Tecnología
                         </Grid>
-                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                            Procesos
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
+                            <Grid item component={Link} to="/casos" className={classes.mainLink} onClick={()=>props.setValue(3)} style={{marginRight: matches3 ? "6rem": "0rem"}}>
+                                Casos de éxito
+                            </Grid>
                         </Grid>
-                        <Grid item component={Link} to="/sobrenosotros" className={classes.link} onClick={()=>props.setValue(2)}>
-                            Instalaciones
-                        </Grid>
-                        <Grid item component={Link} to="/casos" className={classes.mainLink} onClick={()=>props.setValue(3)}>
-                            Casos de éxito
-                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={2} lg={2} className={classes.menuGridItem}>
+                        <Grid container direction="column" justify="center" alignItems={matches ? "center" : "flex-start"} spacing={1}>
                         <Grid item component={Link} to="/contacto" className={classes.mainLink} onClick={()=>props.setValue(4)}>
                             Contáctanos
                         </Grid>
-                    </Grid>
-                </Hidden> */}
-                <Grid container direction="row" justify="center" alignItems="center">
-                    <Grid item>
-                            Botones
+                        </Grid>
                     </Grid>
                 </Grid>
+                <div className={classes.socialMedia} />
+                <Grid container direction="row" justify="center" alignItems="center" style={{margin:'45px 10px 10px 10px'}}>
+                    <Grid item className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, transparent, #e3e3e3)'}}/>
+                    <Grid item style={{margin:'0rem 1rem 0rem 1rem'}}>
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
+                            <Grid item>
+                                B1
+                            </Grid>
+                            <Grid item>
+                                B2
+                            </Grid>
+                            <Grid item>
+                                B3
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, #e3e3e3, transparent)'}}/>
+                </Grid>
+                
             </footer>
 }
