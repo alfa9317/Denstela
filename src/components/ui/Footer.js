@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
         marginRight: 'auto',
         marginTop: '27px',
         padding: '0px',
+        textDecoration: 'none !important',
         [theme.breakpoints.down('sm')]:{
             marginTop: '0px',
             marginBottom: '10px'
@@ -66,6 +67,7 @@ const useStyles = makeStyles(theme => ({
         fontFamily: "'Montserrat', sans-serif",
         fontSize: "1.5rem",
         fontWeight: "bold",
+        textDecoration: 'none !important',
         '&:hover':{
             color: '#a2d5f2',
         },
@@ -137,7 +139,10 @@ const useStyles = makeStyles(theme => ({
         fontSize: '2em',
         color: "#e3e3e3",
         [theme.breakpoints.down('xs')]: {
-            fontSize: '1.5em'
+            fontSize: '1.8em'
+        },
+        '&:hover':{
+            color: '#a2d5f2'
         }
     }
 
@@ -156,7 +161,7 @@ export default function Footer(props){
                     <Grid item xs={12} sm={12} md={6} lg={6} component={Link} to='/' disableRipple onClick={()=>props.setValue(0)}> 
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6}> 
+                    <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank'> 
                         <Button color="primary" className={classes.phoneNumberContainer}><h2 className={classes.phoneNumberText}>{phoneNumber}</h2></Button>
                     </Grid>
                 </Grid>
@@ -245,10 +250,10 @@ export default function Footer(props){
                     <Grid item xs={3} sm={4} md={4} lg={4} className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, transparent, #e3e3e3)'}}/>
                     <Grid item xs={5} sm={3} md={2} lg={2}>
                         <Grid container justify="center" align="center" spacing={3}>
-                            <Grid item>
+                            <Grid item component={'a'} href={"https://www.facebook.com/Denstela"} target="_blank" rel="noopener noreferrer">
                                 <FacebookIcon className={classes.icon}/>
                             </Grid>
-                            <Grid item>
+                            <Grid item component={'a'} href={"https://www.instagram.com/den.stela/"} target="_blank" rel="noopener noreferrer">
                                 <InstagramIcon className={classes.icon}/>
                             </Grid>
                             <Grid item>
