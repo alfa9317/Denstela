@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import {useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
@@ -48,9 +49,6 @@ const useStyles = makeStyles(theme => ({
         }
     },
     phoneNumberContainer: {
-        // display: 'block',
-        // marginLeft: 'auto',
-        // marginRight: 'auto',
         marginTop: '38px',
         textDecoration: 'none',
         color: 'white',
@@ -69,9 +67,17 @@ const useStyles = makeStyles(theme => ({
         }
     },
     phoneNumberText: {
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         fontFamily: "'Montserrat', sans-serif",
         fontSize: "1.5rem",
         fontWeight: "bold",
+        color: 'white',
+        '&:hover':{
+            color: '#a2d5f2',
+            backgroundColor: 'transparent'
+        },
         [theme.breakpoints.down('md')]:{
             fontSize: "1.3rem"
         },
@@ -83,19 +89,19 @@ const useStyles = makeStyles(theme => ({
         }
     },
     phoneNumberIcon: {
-        fontSize: "1.5rem",
-        marginTop:'0.5rem',
-        marginRight: '1px',
+        fontSize: "1.2rem",
+        marginTop:'0.3rem',
+        marginRight: '5px',
         [theme.breakpoints.down('md')]:{
-            fontSize: "1.3rem",
+            fontSize: "1.1rem",
             marginTop:'0.4rem'
         },
         [theme.breakpoints.down('sm')]:{
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             marginTop:'0.3rem'
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: "1.2rem",
+            fontSize: "0.9rem",
             marginTop:'0.4rem'
         }
     },
@@ -180,14 +186,7 @@ export default function Footer(props){
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank' className={classes.phoneNumberContainer}> 
-                        <Grid container direction="row" justify="center" alignItems="center">
-                            <Grid item>
-                                <PhoneIcon className={classes.phoneNumberIcon}/>
-                            </Grid>
-                            <Grid item>
-                                <h2 className={classes.phoneNumberText}>{phoneNumber}</h2>
-                            </Grid>
-                        </Grid>
+                        <Button className={classes.phoneNumberText}><PhoneIcon className={classes.phoneNumberIcon}/>{phoneNumber}</Button>
                     </Grid>
                 </Grid>
                 <Box style={{overflow: 'auto'}}>
