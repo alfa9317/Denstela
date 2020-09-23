@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
             width: "19em"
         },
         [theme.breakpoints.down('xs')]:{
-            width: "14em"
+            width: "18em"
         }
     },
     phoneNumberContainer: {
@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
             fontSize: "1.2rem"
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: "1.2rem"
+            fontSize: "1.4rem"
         }
     },
     phoneNumberIcon: {
@@ -101,7 +101,7 @@ const useStyles = makeStyles(theme => ({
             marginTop:'0.3rem'
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: "0.9rem",
+            fontSize: "1.1rem",
             marginTop:'0.4rem'
         }
     },
