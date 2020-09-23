@@ -11,6 +11,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PhoneIcon from '@material-ui/icons/Phone';
+import CopyrightIcon from '@material-ui/icons/Copyright';
 
 import footerAdornment from '../../assets/images/constLogo2.png';
 
@@ -168,6 +169,35 @@ const useStyles = makeStyles(theme => ({
         '&:hover':{
             color: '#a2d5f2'
         }
+    },
+    copyRightIcon:{
+        fontSize: '1em',
+        color: "#e3e3e3",
+        marginRight: "1.6px",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1em'
+        },
+    },
+    copyRightText:{
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: 200,
+        fontSize: '1em',
+        marginTop: '4rem',
+        color: "#e3e3e3",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '0.8em',
+            marginTop: '2.8rem'
+        },
+    },
+    signature:{
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: 200,
+        fontSize: '0.5em',
+        marginTop: '0.5rem',
+        color: "#e3e3e3",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '0.4em'
+        },
     }
 
 }))
@@ -287,6 +317,14 @@ export default function Footer(props){
                         </Grid>
                     </Grid>
                     <Grid item xs={3} sm={4} md={4} lg={4} className={classes.line} style={{backgroundImage: 'linear-gradient(90deg, #e3e3e3, transparent)'}}/>
+                </Grid>
+                <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid item>
+                        <div className={classes.copyRightText}><CopyrightIcon className={classes.copyRightIcon}/>{"2020 Denstela. Todos los derechos reservados."}</div>
+                    </Grid>
+                    <Grid item className={classes.signature}>
+                        Web design by José Alfredo Torres
+                    </Grid>
                 </Grid>
                 
             </footer>
