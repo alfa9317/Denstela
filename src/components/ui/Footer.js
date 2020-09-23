@@ -2,13 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import {useTheme} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 import footerAdornment from '../../assets/images/constLogo2.png';
 
@@ -47,41 +47,55 @@ const useStyles = makeStyles(theme => ({
         }
     },
     phoneNumberContainer: {
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '27px',
-        padding: '0px',
-        [theme.breakpoints.down('sm')]:{
-            marginTop: '0px',
-            marginBottom: '10px'
-        },
-        [theme.breakpoints.down('xs')]:{
-            marginTop: '0px',
-            marginBottom: '0px'
-        }
-    },
-    phoneNumberText: {
-        textAlign: 'center',
-        marginTop: '55px',
+        // display: 'block',
+        // marginLeft: 'auto',
+        // marginRight: 'auto',
+        marginTop: '38px',
+        textDecoration: 'none',
         color: 'white',
-        fontFamily: "'Montserrat', sans-serif",
-        fontSize: "1.5rem",
-        fontWeight: "bold",
         '&:hover':{
             color: '#a2d5f2',
         },
         [theme.breakpoints.down('md')]:{
+            marginTop: '32px',
+        },
+        [theme.breakpoints.down('sm')]:{
+            marginTop: '5px',
+            marginBottom: '10px'
+        },
+        [theme.breakpoints.down('xs')]:{
+            marginTop: '10px'
+        }
+    },
+    phoneNumberText: {
+        fontFamily: "'Montserrat', sans-serif",
+        fontSize: "1.5rem",
+        fontWeight: "bold",
+        [theme.breakpoints.down('md')]:{
+            fontSize: "1.3rem"
+        },
+        [theme.breakpoints.down('sm')]:{
+            fontSize: "1.2rem"
+        },
+        [theme.breakpoints.down('xs')]:{
+            fontSize: "1.2rem"
+        }
+    },
+    phoneNumberIcon: {
+        fontSize: "1.5rem",
+        marginTop:'0.5rem',
+        marginRight: '1px',
+        [theme.breakpoints.down('md')]:{
             fontSize: "1.3rem",
-            marginTop: '50px'
+            marginTop:'0.4rem'
         },
         [theme.breakpoints.down('sm')]:{
             fontSize: "1.2rem",
-            marginTop: '20px'
+            marginTop:'0.3rem'
         },
         [theme.breakpoints.down('xs')]:{
             fontSize: "1.2rem",
-            marginTop: '25px'
+            marginTop:'0.4rem'
         }
     },
     linksContainer:{
@@ -164,8 +178,15 @@ export default function Footer(props){
                     <Grid item xs={12} sm={12} md={6} lg={6} component={Link} to='/' disableRipple onClick={()=>props.setValue(0)}> 
                         <img alt="logo" src={footerAdornment} className={classes.adornment}/>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank' style={{textDecoration: 'none !important'}}> 
-                        <h2 className={classes.phoneNumberText}>{phoneNumber}</h2>
+                    <Grid item xs={12} sm={12} md={6} lg={6} component={'a'} href='tel:3521250143' id="phone-link" rel='noopener noreferrer' target='_blank' className={classes.phoneNumberContainer}> 
+                        <Grid container direction="row" justify="center" alignItems="center">
+                            <Grid item>
+                                <PhoneIcon className={classes.phoneNumberIcon}/>
+                            </Grid>
+                            <Grid item>
+                                <h2 className={classes.phoneNumberText}>{phoneNumber}</h2>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Grid container direction="row" justify="center" alignItems="flex-start" className={classes.linksContainer}>
