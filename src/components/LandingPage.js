@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useRef, Fragment } from "react";
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ArrowButton from "../components/ui/ArrowButton";
 import Typography from "@material-ui/core/Typography";
-import { Carousel } from 'antd';
+import { Row, Col, Carousel } from 'antd';
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 // import {Animated} from "react-animated-css";
 
 
@@ -55,6 +57,12 @@ const useStyles = makeStyles(theme => ({
             borderColor: '#f6b93b !important',
             transition: 'all 0.2s ease 0s'
         },
+        '@media (hover: none)': {
+            '&:hover':{
+                color: 'white',
+                background: theme.palette.common.primary
+            } 
+        }
         
     },
     buttonContainer: {
@@ -116,38 +124,71 @@ const useStyles = makeStyles(theme => ({
     },
     slideContainer: {
         position: 'relative',
-        textAlign: 'center'
+        width: '100%'
     },
     slideText: {
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-    }
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '100%',
+        width: '100%',
+     },
+     carouselButton: {
+        height: '100%',
+        width: '2vw',
+        transition: 'all 0.4s ease 0s',
+        '&:hover': {
+            width: '8vw'
+        }
+     }
 }));
 
 export default function LandingPage() {
     const classes = useStyles();
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const slider = useRef(null);
 
     return(
         <React.Fragment>
-            <Carousel autoplay>
+            <Fragment>
                 <div className={classes.slideContainer}>
-                    <img src={dentista} alt="imagen consultorio" style={{width:'100%'}}/>
-                    {/* <h1 className={classes.slideText} style={{top:'33%',left:'60%',color: 'black', fontSize:'4vw'}}>{"¡Hola!"}</h1> 
-                    <h3 className={classes.slideText} style={{top:'60%',left:'70%',color: 'black', fontSize:'3vw'}}>{"Bienvenido a tu fondita"}</h3>  */}
+                    <Carousel autoplay ref={slider}>
+                        <div>
+                            <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
+                            {/* <h1 className={classes.slideText} style={{top:'33%',left:'60%',color: 'black', fontSize:'4vw'}}>{"¡Hola!"}</h1> 
+                            <h3 className={classes.slideText} style={{top:'60%',left:'70%',color: 'black', fontSize:'3vw'}}>{"Bienvenido a tu fondita"}</h3>  */}
+                            
+                        </div>
+                        <div >
+                            <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
+                            {/* <h2 className={classes.slideText} style={{left:'45%'}}>Recibe tu comida en recipientes biodegradables</h2>  */}
+                        </div>
+                        <div >
+                            <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
+                            {/* <h1 className={classes.slideText} style={{left:'60%'}}>Comida que te consiente</h1> */}
+                        </div>
+                    </Carousel>
+                    <Row justify="space-between" className={classes.overlay} >
+                        <Col>
+                            <Button className={classes.carouselButton} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon/></Button>
+                        </Col>
+                        <Col>
+                            <Button className={classes.carouselButton} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon/></Button>
+                        </Col>
+                    </Row>
                 </div>
-                <div className="slideContainer">
-                    <img src={dentista} alt="imagen consultorio" style={{width:'100%'}}/>
-                    {/* <h2 className={classes.slideText} style={{left:'45%'}}>Recibe tu comida en recipientes biodegradables</h2>  */}
-                </div>
-                <div className="slideContainer">
-                    <img src={dentista} alt="imagen consultorio" style={{width:'100%'}}/>
-                    {/* <h1 className={classes.slideText} style={{left:'60%'}}>Comida que te consiente</h1> */}
-                </div>
-            </Carousel>
+            </Fragment>
+            
+            
             <Grid container direction="column" className={classes.mainContainer}>
                 <Grid item>
                     
