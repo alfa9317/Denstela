@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     button: {
-        ...theme.typography.estimate,
+        ...theme.typography.contact,
         borderRadius: '50px',
         marginLeft: '40px',
         marginRight: '35px',

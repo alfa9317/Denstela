@@ -121,6 +121,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('xs')]:{
             fontSize: "1.4rem",
             margin: "0rem",
+        },
+        '&:hover':{
+            color: '#a2d5f2',
         }
     },
     link: {
@@ -135,6 +138,9 @@ const useStyles = makeStyles(theme => ({
             marginLeft: 'auto',
             marginRight: 'auto',
             padding: '0px'
+        },
+        '&:hover':{
+            color: '#a2d5f2',
         }
     },
     menuGridItem: {

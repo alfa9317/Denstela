@@ -5,6 +5,7 @@ import './App.css'
 import theme from './components/ui/Theme';
 import Header from './components/ui/Header';
 import Footer from './components/ui/Footer';
+import LandingPage from './components/LandingPage';
 import InConstruction from './pages/InConstruction';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Header value={value} setValue={setValue} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
         <Switch>
-          <Route exact path='/' component={InConstruction} />
+          <Route exact path='/' component={LandingPage} />
           <Route exact path='/servicios' component={() => <div>Servicios</div>} />
           <Route exact path='/servicio1' component={() => <div>Servicio 1</div>} />
           <Route exact path='/servicio2' component={() => <div>Servicio 2</div>} />

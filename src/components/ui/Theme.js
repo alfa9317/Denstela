@@ -23,11 +23,18 @@ export default createMuiTheme({
             fontWeight: 400,
             fontSize: '0.9rem'
         },
-        estimate: {
+        contact: {
             fontFamily: "'Pacifico', cursive;",
             fontSize: '0.9rem',
             textTransform: 'none',
             color: 'white'
+        },
+        h2: {
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 700,
+            fontSize: '2.5rem',
+            color: `${dSecondary}`,
+            lineHeight: 1.5
         }
     }
 });
