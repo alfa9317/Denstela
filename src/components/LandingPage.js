@@ -42,10 +42,12 @@ const useStyles = makeStyles(theme => ({
             marginRight: 20,
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: '0.9rem',
-            height: 40,
-            width: 135,
-            marginRight: 10,
+            fontSize: '1.2rem',
+            height: 46,
+            width: 155,
+            marginRight: 0,
+            marginTop: 15,
+            marginBottom: 15
         },
         '&:hover':{
             color: theme.palette.common.primary,
@@ -78,8 +80,8 @@ const useStyles = makeStyles(theme => ({
             height: 40,
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: '0.8rem',
-            height: 39,
+            fontSize: '1rem',
+            height: 38,
         }
     },
     mainContainer: {
@@ -102,7 +104,7 @@ const useStyles = makeStyles(theme => ({
             fontSize: '2.5rem'
         },
         [theme.breakpoints.down('xs')]:{
-            fontSize: '2rem'
+            fontSize: '1.4rem'
         }
     },
     contentStyle: {
