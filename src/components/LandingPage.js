@@ -39,15 +39,15 @@ const useStyles = makeStyles(theme => ({
             fontSize: '1rem',
             height: 43,
             width: 145,
-            marginRight: 20,
+            marginRight: 0,
+            marginBottom: 15
         },
         [theme.breakpoints.down('xs')]:{
             fontSize: '1.2rem',
             height: 46,
-            width: 155,
+            width: 175,
             marginRight: 0,
             marginTop: 15,
-            marginBottom: 15
         },
         '&:hover':{
             color: theme.palette.common.primary,
@@ -163,7 +163,7 @@ export default function LandingPage() {
                                 <br />
                                 Como cuidas de los tuyos
                             </Typography>
-                            <Grid container justify="center" className={classes.buttonContainer}>
+                            <Grid container justify="center" alignItems="center" direction= {matchesSM ? "column" : "row"} className={classes.buttonContainer}>
                                 <Grid item>
                                     <Button variant="contained" className={classes.contactButton}>Contáctanos</Button>
                                 </Grid>

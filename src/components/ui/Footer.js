@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
             height: "40rem"
         },
         [theme.breakpoints.down('xs')]:{
-            height: "60rem"
+            height: "65rem"
         }
     },
     adornment: {
