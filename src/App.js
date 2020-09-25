@@ -6,7 +6,7 @@ import theme from './components/ui/Theme';
 import Header from './components/ui/Header';
 import Footer from './components/ui/Footer';
 import LandingPage from './components/LandingPage';
-import InConstruction from './pages/InConstruction';
+// import InConstruction from './pages/InConstruction';
 
 function App() {
 

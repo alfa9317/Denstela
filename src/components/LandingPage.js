@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import ArrowButton from "../components/ui/ArrowButton";
 import Typography from "@material-ui/core/Typography";
 import { Carousel } from 'antd';
-import {Animated} from "react-animated-css";
+// import {Animated} from "react-animated-css";
 
 
 import consultorio from "../assets/images/consultorio.jpeg"
