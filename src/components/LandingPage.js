@@ -3,6 +3,7 @@ import {makeStyles, useTheme} from "@material-ui/core/styles";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Hidden from '@material-ui/core/Hidden';
 import ArrowButton from "../components/ui/ArrowButton";
 import Typography from "@material-ui/core/Typography";
 import { Row, Col, Carousel } from 'antd';
@@ -162,7 +163,7 @@ export default function LandingPage() {
         height: '100%',
         transition: 'all 0.4s ease 0s',
         width: isOnR ? '8.5vw' : '2.5vw',
-        backgroundColor: isOnR ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
+        backgroundColor: isOnR ? 'rgba(0, 0, 0, 0.3)' : 'transparent'
     }
     const iconCarouselL = {
         transition: 'all 0.4s ease 0s',
@@ -198,14 +199,16 @@ export default function LandingPage() {
                             {/* <h1 className={classes.slideText} style={{left:'60%'}}>Comida que te consiente</h1> */}
                         </div>
                     </Carousel>
-                    <Row justify="space-between" className={classes.overlay} >
-                        <Col onMouseEnter={() => setIsOnL(true)} onMouseLeave={() => setIsOnL(false)}>
-                            <Button style={carouselButtonL} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon style={iconCarouselL}/></Button>
-                        </Col>
-                        <Col onMouseEnter={() => setIsOnR(true)} onMouseLeave={() => setIsOnR(false)}>
-                            <Button style={carouselButtonR} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon style={iconCarouselR}/></Button>
-                        </Col>
-                    </Row>
+                    <Hidden xsDown>
+                        <Row justify="space-between" className={classes.overlay} >
+                            <Col onMouseEnter={() => setIsOnL(true)} onMouseLeave={() => setIsOnL(false)}>
+                                <Button style={carouselButtonL} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon style={iconCarouselL }/></Button>
+                            </Col>
+                            <Col onMouseEnter={() => setIsOnR(true)} onMouseLeave={() => setIsOnR(false)}>
+                                <Button style={carouselButtonR} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon style={iconCarouselR}/></Button>
+                            </Col>
+                        </Row>
+                    </Hidden>
                 </div>
             </Fragment>
             
