@@ -1,4 +1,4 @@
-import React, { useRef, Fragment } from "react";
+import React, { useState, useRef, Fragment } from "react";
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from "@material-ui/core/Grid";
@@ -140,14 +140,6 @@ const useStyles = makeStyles(theme => ({
         right: 0,
         height: '100%',
         width: '100%',
-     },
-     carouselButton: {
-        height: '100%',
-        width: '2vw',
-        transition: 'all 0.4s ease 0s',
-        '&:hover': {
-            width: '8vw'
-        }
      }
 }));
 
@@ -156,6 +148,35 @@ export default function LandingPage() {
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
     const slider = useRef(null);
+
+    const [isOnL, setIsOnL] = useState(false);
+    const [isOnR, setIsOnR] = useState(false);
+
+    const carouselButtonL = {
+        height: '100%',
+        transition: 'all 0.4s ease 0s',
+        width: isOnL ? '8.5vw' : '2.5vw',
+        backgroundColor: isOnL ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
+    }
+    const carouselButtonR = {
+        height: '100%',
+        transition: 'all 0.4s ease 0s',
+        width: isOnR ? '8.5vw' : '2.5vw',
+        backgroundColor: isOnR ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
+    }
+    const iconCarouselL = {
+        transition: 'all 0.4s ease 0s',
+        fontSize: isOnL ? '4rem' : '3rem',
+        fontWeight: isOnL ? 600 : 400,
+        opacity: isOnL ? 1 : 0.2
+    }
+    const iconCarouselR = {
+        transition: 'all 0.4s ease 0s',
+        fontSize: isOnR ? '4rem' : '3rem',
+        fontWeight: isOnR ? 600 : 400,
+        opacity: isOnR ? 1 : 0.2
+    }
+
 
     return(
         <React.Fragment>
@@ -178,11 +199,11 @@ export default function LandingPage() {
                         </div>
                     </Carousel>
                     <Row justify="space-between" className={classes.overlay} >
-                        <Col>
-                            <Button className={classes.carouselButton} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon/></Button>
+                        <Col onMouseEnter={() => setIsOnL(true)} onMouseLeave={() => setIsOnL(false)}>
+                            <Button style={carouselButtonL} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon style={iconCarouselL}/></Button>
                         </Col>
-                        <Col>
-                            <Button className={classes.carouselButton} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon/></Button>
+                        <Col onMouseEnter={() => setIsOnR(true)} onMouseLeave={() => setIsOnR(false)}>
+                            <Button style={carouselButtonR} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon style={iconCarouselR}/></Button>
                         </Col>
                     </Row>
                 </div>
