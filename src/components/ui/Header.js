@@ -210,7 +210,7 @@ export default function Header(props){
         <React.Fragment>
             <Tabs value={props.value} onChange={handleChange} indicatorColor='secondary' className={classes.tabContainer}>
                 {routes.map((route,index) => (
-                    <Tab key={`${route}${index}`} className={classes.tab} component={Link} disableRipple to={route.link} label={route.name} aria-owns={route.ariaOwns} aria-haspopup={route.ariaPopup} onMouseOver={route.mouseOver} />
+                    <Tab key={`${route}${index}`} className={classes.tab} component={Link} disableRipple={true} to={route.link} label={route.name} aria-owns={route.ariaOwns} aria-haspopup={route.ariaPopup} onMouseOver={route.mouseOver} />
                 ))}
             </Tabs>
             <Button variant='contained' component={Link} to='/citas' className={classes.button}>
@@ -250,7 +250,7 @@ export default function Header(props){
                     </ListItem>
                 </List>
             </SwipeableDrawer>
-            <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
+            <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple={true}>
                 <MenuIcon className={classes.drawerIcon} style={{color: trigger ? '#FFFFFF' : 'black'}}/>
             </IconButton>
         </React.Fragment>
@@ -264,7 +264,7 @@ export default function Header(props){
             <ElevationScroll>
                 <AppBar position='fixed' color= 'primary' className={classes.appbar}>
                     <Toolbar disableGutters>
-                        <Button component={Link} to='/' disableRipple className={classes.logoContainer} onClick={()=>props.setValue(0)}> 
+                        <Button component={Link} to='/' disableRipple={true} className={classes.logoContainer} onClick={()=>props.setValue(0)}> 
                             <img alt='Company logo' className={classes.logo} src={logo} />
                         </Button>
                         {matches ? drawer : tabs}

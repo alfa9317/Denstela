@@ -1,4 +1,5 @@
 import React, { useState, useRef, Fragment } from "react";
+import { motion } from 'framer-motion';
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from "@material-ui/core/Grid";
@@ -6,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import Hidden from '@material-ui/core/Hidden';
 import ArrowButton from "../components/ui/ArrowButton";
 import Typography from "@material-ui/core/Typography";
-import { Row, Col, Carousel } from 'antd';
+import { Carousel } from 'antd';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 // import {Animated} from "react-animated-css";
@@ -141,7 +142,23 @@ const useStyles = makeStyles(theme => ({
         right: 0,
         height: '100%',
         width: '100%',
-     }
+    },
+    overlay2: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+    },
+    leftArrow:{
+        position: 'absolute',
+        top: '0px',
+        left: '0px'
+    },
+    rightArrow:{
+        position: 'absolute',
+        top: '0px',
+        right: '0px'
+    }
 }));
 
 export default function LandingPage() {
@@ -152,15 +169,16 @@ export default function LandingPage() {
 
     const [isOnL, setIsOnL] = useState(false);
     const [isOnR, setIsOnR] = useState(false);
+    const [slide, setSlide] = useState(0);
 
     const carouselButtonL = {
-        height: '100%',
+        height: '38.9vw',
         transition: 'all 0.4s ease 0s',
         width: isOnL ? '8.5vw' : '2.5vw',
         backgroundColor: isOnL ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
     }
     const carouselButtonR = {
-        height: '100%',
+        height: '38.9vw',
         transition: 'all 0.4s ease 0s',
         width: isOnR ? '8.5vw' : '2.5vw',
         backgroundColor: isOnR ? 'rgba(0, 0, 0, 0.3)' : 'transparent'
@@ -178,36 +196,67 @@ export default function LandingPage() {
         opacity: isOnR ? 1 : 0.2
     }
 
+    function Impresion(index){
+        console.log(slide)
+        setSlide(100)
+        console.log(slide)
+    }
+
 
     return(
         <React.Fragment>
             <Fragment>
                 <div className={classes.slideContainer}>
-                    <Carousel autoplay ref={slider}>
-                        <div>
+                    <Carousel autoplay autoplaySpeed={7000} afterChange={(index)=>Impresion(index)} ref={slider}>
+                        <div className={classes.slideContainer}>
                             <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
-                            {/* <h1 className={classes.slideText} style={{top:'33%',left:'60%',color: 'black', fontSize:'4vw'}}>{"¡Hola!"}</h1> 
-                            <h3 className={classes.slideText} style={{top:'60%',left:'70%',color: 'black', fontSize:'3vw'}}>{"Bienvenido a tu fondita"}</h3>  */}
                             
+                            <Grid container justify="center" alignItems="center" direction= {matchesSM ? "column" : "row"} className={classes.overlay} style={{zIndex: 1302}}>
+                                <Grid sm item className={classes.heroTextContainer}>
+                                    {/* <motion.h2 initial={{x:100}} animate={{x: 0}} transition={{duration: 1}} align="center" className={classes.heroText}>Hola</motion.h2> */}
+                                    <Typography align="center" variant="h2" className={classes.heroText}>
+                                        Cuidamos de tus dientes,
+                                        <br />
+                                    </Typography>
+                                    <Typography align="center" variant="h2" className={classes.heroText}>
+                                        Como cuidas de los tuyos
+                                    </Typography>
+                                    <Grid container justify="center" alignItems="center" direction= {matchesSM ? "column" : "row"} className={classes.buttonContainer}>
+                                        <Grid item>
+                                            <Button variant="contained" className={classes.contactButton}>Contáctanos</Button>
+                                        </Grid>
+                                        <Grid item>
+                                            <Button variant="outlined" className={classes.learnButtonHero}>
+                                                <span style={{marginRight: 10}}>Conoce más sobre nosotros</span>
+                                                <ArrowButton width={15} height={15} fill={theme.palette.common.primary} />
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </div>
-                        <div >
+                        <div className={classes.slideContainer}>
                             <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
-                            {/* <h2 className={classes.slideText} style={{left:'45%'}}>Recibe tu comida en recipientes biodegradables</h2>  */}
                         </div>
-                        <div >
+                        <div className={classes.slideContainer}>
                             <img src={dentista} alt="imagen consultorio" style={{display: 'block', width:'100%'}}/>
-                            {/* <h1 className={classes.slideText} style={{left:'60%'}}>Comida que te consiente</h1> */}
                         </div>
                     </Carousel>
                     <Hidden xsDown>
-                        <Row justify="space-between" className={classes.overlay} >
+                        {/* <Row justify="space-between" className={classes.overlay} >
                             <Col onMouseEnter={() => setIsOnL(true)} onMouseLeave={() => setIsOnL(false)}>
                                 <Button style={carouselButtonL} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon style={iconCarouselL }/></Button>
                             </Col>
                             <Col onMouseEnter={() => setIsOnR(true)} onMouseLeave={() => setIsOnR(false)}>
                                 <Button style={carouselButtonR} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon style={iconCarouselR}/></Button>
                             </Col>
-                        </Row>
+                        </Row> */}
+                        <div onMouseEnter={() => setIsOnL(true)} onMouseLeave={() => setIsOnL(false)} className={classes.leftArrow}>
+                            <Button style={carouselButtonL} onClick={() => slider.current.prev()}><ArrowBackIosRoundedIcon style={iconCarouselL }/></Button>
+                        </div>
+                        <div onMouseEnter={() => setIsOnR(true)} onMouseLeave={() => setIsOnR(false)} className={classes.rightArrow}>
+                            <Button style={carouselButtonR} onClick={() => slider.current.next()}><ArrowForwardIosRoundedIcon style={iconCarouselR}/></Button>
+                        </div>
                     </Hidden>
                 </div>
             </Fragment>
@@ -233,10 +282,12 @@ export default function LandingPage() {
                                     <Button variant="contained" className={classes.contactButton}>Contáctanos</Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button variant="outlined" className={classes.learnButtonHero}>
-                                        <span style={{marginRight: 10}}>Conoce más sobre nosotros</span>
-                                        <ArrowButton width={15} height={15} fill={theme.palette.common.primary} />
-                                    </Button>
+                                    <motion.div initial={{opacity:0}} animate={{opacity: 1}} transition={{duration: 3}}>
+                                        <Button variant="outlined" className={classes.learnButtonHero}>
+                                            <span style={{marginRight: 10}}>Conoce más sobre nosotros</span>
+                                            <ArrowButton width={15} height={15} fill={theme.palette.common.primary} />
+                                        </Button>
+                                    </motion.div>
                                 </Grid>
                             </Grid>
                         </Grid>
